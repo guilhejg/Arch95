@@ -1,7 +1,18 @@
-````md
 <div align="center">
 
-<img src="./assets/banner.png" alt="Arch95 Banner" width="100%">
+  <img src="./assets/banner.png" alt="Arch95 Banner" width="100%">
+
+  <h1>Arch95</h1>
+
+  <p>
+    <strong>A Windows 95-inspired dark desktop environment for XFCE on Arch Linux.</strong>
+  </p>
+
+  <p>
+    Built for ThinkPads, retro-computing enthusiasts and minimalists.
+  </p>
+
+</div>
 
 # Arch95
 
@@ -66,6 +77,3 @@ Arch95 is an independent customization built on top of Chicago95.
 ## 📜 License
 
 Please preserve the original Chicago95 licenses and attribution when redistributing this project.
-
-```
-```
