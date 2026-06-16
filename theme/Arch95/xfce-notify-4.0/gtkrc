@@ -1,0 +1,13 @@
+style "notify-window"
+{
+    bg[NORMAL] = "#202020"
+    fg[NORMAL] = "#e5e5e5"
+
+    XfceNotifyWindow::border-color = "#808080"
+
+    XfceNotifyWindow::border-radius = 0.0
+
+    XfceNotifyWindow::border-width = 2.0
+}
+
+class "XfceNotifyWindow" style "notify-window"

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+ACTION="$1"
+
+case "$ACTION" in
+up)
+    wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+
+    VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}')
+    notify-send -r 9991 -t 1000 "🔊 Volume" "$VOL%"
+    ;;
+
+down)
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-
+    VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}')
+    notify-send -r 9991 -t 1000 "🔉 Volume" "$VOL%"
+    ;;
+
+mute)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+    if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then
+        notify-send -r 9991 -t 1000 "🔇 Som" "Mutado"
+    else
+        notify-send -r 9991 -t 1000 "🔊 Som" "Ativado"
+    fi
+    ;;
+
+mic)
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+    if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then
+        notify-send -r 9992 -t 1000 "🎙️ Microfone" "Mutado"
+    else
+        notify-send -r 9992 -t 1000 "🎙️ Microfone" "Ativado"
+    fi
+    ;;
+esac
